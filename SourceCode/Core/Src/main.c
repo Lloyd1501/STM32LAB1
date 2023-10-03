@@ -60,6 +60,60 @@ void SystemClock_Config(void);
   * @brief  The application entry point.
   * @retval int
   */
+
+void clearNumberOnClock(int num) {
+	switch(num) {
+		case 0:
+			setAllClock();
+			HAL_GPIO_WritePin(LED_0_GPIO_Port, LED_0_Pin, RESET);
+			break;
+		case 1:
+			setAllClock();
+			HAL_GPIO_WritePin(LED_1_GPIO_Port, LED_1_Pin, RESET);
+			break;
+		case 2:
+			setAllClock();
+			HAL_GPIO_WritePin(LED_2_GPIO_Port, LED_2_Pin, RESET);
+			break;
+		case 3:
+			setAllClock();
+			HAL_GPIO_WritePin(LED_3_GPIO_Port, LED_3_Pin, RESET);
+			break;
+		case 4:
+			setAllClock();
+			HAL_GPIO_WritePin(LED_4_GPIO_Port, LED_4_Pin, RESET);
+			break;
+		case 5:
+			setAllClock();
+			HAL_GPIO_WritePin(LED_5_GPIO_Port, LED_5_Pin, RESET);
+			break;
+		case 6:
+			setAllClock();
+			HAL_GPIO_WritePin(LED_6_GPIO_Port, LED_6_Pin, RESET);
+			break;
+		case 7:
+			setAllClock();
+			HAL_GPIO_WritePin(LED_7_GPIO_Port, LED_7_Pin, RESET);
+			break;
+		case 8:
+			setAllClock();
+			HAL_GPIO_WritePin(LED_8_GPIO_Port, LED_8_Pin, RESET);
+			break;
+		case 9:
+			setAllClock();
+			HAL_GPIO_WritePin(LED_9_GPIO_Port, LED_9_Pin, RESET);
+			break;
+		case 10:
+			setAllClock();
+			HAL_GPIO_WritePin(LED_10_GPIO_Port, LED_10_Pin, RESET);
+			break;
+		case 11:
+			setAllClock();
+			HAL_GPIO_WritePin(LED_11_GPIO_Port, LED_11_Pin, RESET);
+			break;
+	}
+}
+
 int main(void)
 {
   /* USER CODE BEGIN 1 */
