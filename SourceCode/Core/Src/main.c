@@ -60,6 +60,128 @@ void SystemClock_Config(void);
   * @brief  The application entry point.
   * @retval int
   */
+
+void setAllClock() {
+	HAL_GPIO_WritePin(LED_0_GPIO_Port, LED_0_Pin, SET);
+	HAL_GPIO_WritePin(LED_1_GPIO_Port, LED_1_Pin, SET);
+	HAL_GPIO_WritePin(LED_2_GPIO_Port, LED_2_Pin, SET);
+	HAL_GPIO_WritePin(LED_3_GPIO_Port, LED_3_Pin, SET);
+	HAL_GPIO_WritePin(LED_4_GPIO_Port, LED_4_Pin, SET);
+	HAL_GPIO_WritePin(LED_5_GPIO_Port, LED_5_Pin, SET);
+	HAL_GPIO_WritePin(LED_6_GPIO_Port, LED_6_Pin, SET);
+	HAL_GPIO_WritePin(LED_7_GPIO_Port, LED_7_Pin, SET);
+	HAL_GPIO_WritePin(LED_8_GPIO_Port, LED_8_Pin, SET);
+	HAL_GPIO_WritePin(LED_9_GPIO_Port, LED_9_Pin, SET);
+	HAL_GPIO_WritePin(LED_10_GPIO_Port, LED_10_Pin, SET);
+	HAL_GPIO_WritePin(LED_11_GPIO_Port, LED_11_Pin, SET);
+}
+void clearAllClock() {
+	HAL_GPIO_WritePin(LED_0_GPIO_Port, LED_0_Pin, RESET);
+	HAL_GPIO_WritePin(LED_1_GPIO_Port, LED_1_Pin, RESET);
+	HAL_GPIO_WritePin(LED_2_GPIO_Port, LED_2_Pin, RESET);
+	HAL_GPIO_WritePin(LED_3_GPIO_Port, LED_3_Pin, RESET);
+	HAL_GPIO_WritePin(LED_4_GPIO_Port, LED_4_Pin, RESET);
+	HAL_GPIO_WritePin(LED_5_GPIO_Port, LED_5_Pin, RESET);
+	HAL_GPIO_WritePin(LED_6_GPIO_Port, LED_6_Pin, RESET);
+	HAL_GPIO_WritePin(LED_7_GPIO_Port, LED_7_Pin, RESET);
+	HAL_GPIO_WritePin(LED_8_GPIO_Port, LED_8_Pin, RESET);
+	HAL_GPIO_WritePin(LED_9_GPIO_Port, LED_9_Pin, RESET);
+	HAL_GPIO_WritePin(LED_10_GPIO_Port, LED_10_Pin, RESET);
+	HAL_GPIO_WritePin(LED_11_GPIO_Port, LED_11_Pin, RESET);
+}
+void setNumberOnClock(int num) {
+	switch(num) {
+		case 0:
+			HAL_GPIO_WritePin(LED_0_GPIO_Port, LED_0_Pin, SET);
+			break;
+		case 1:
+			HAL_GPIO_WritePin(LED_1_GPIO_Port, LED_1_Pin, SET);
+			break;
+		case 2:
+			HAL_GPIO_WritePin(LED_2_GPIO_Port, LED_2_Pin, SET);
+			break;
+		case 3:
+			HAL_GPIO_WritePin(LED_3_GPIO_Port, LED_3_Pin, SET);
+			break;
+		case 4:
+			HAL_GPIO_WritePin(LED_4_GPIO_Port, LED_4_Pin, SET);
+			break;
+		case 5:
+			HAL_GPIO_WritePin(LED_5_GPIO_Port, LED_5_Pin, SET);
+			break;
+		case 6:
+			HAL_GPIO_WritePin(LED_6_GPIO_Port, LED_6_Pin, SET);
+			break;
+		case 7:
+			HAL_GPIO_WritePin(LED_7_GPIO_Port, LED_7_Pin, SET);
+			break;
+		case 8:
+			HAL_GPIO_WritePin(LED_8_GPIO_Port, LED_8_Pin, SET);
+			break;
+		case 9:
+			HAL_GPIO_WritePin(LED_9_GPIO_Port, LED_9_Pin, SET);
+			break;
+		case 10:
+			HAL_GPIO_WritePin(LED_10_GPIO_Port, LED_10_Pin, SET);
+			break;
+		case 11:
+			HAL_GPIO_WritePin(LED_11_GPIO_Port, LED_11_Pin, SET);
+			break;
+	}
+}
+void clearNumberOnClock(int num) {
+	switch(num) {
+		case 0:
+			setAllClock();
+			HAL_GPIO_WritePin(LED_0_GPIO_Port, LED_0_Pin, RESET);
+			break;
+		case 1:
+			setAllClock();
+			HAL_GPIO_WritePin(LED_1_GPIO_Port, LED_1_Pin, RESET);
+			break;
+		case 2:
+			setAllClock();
+			HAL_GPIO_WritePin(LED_2_GPIO_Port, LED_2_Pin, RESET);
+			break;
+		case 3:
+			setAllClock();
+			HAL_GPIO_WritePin(LED_3_GPIO_Port, LED_3_Pin, RESET);
+			break;
+		case 4:
+			setAllClock();
+			HAL_GPIO_WritePin(LED_4_GPIO_Port, LED_4_Pin, RESET);
+			break;
+		case 5:
+			setAllClock();
+			HAL_GPIO_WritePin(LED_5_GPIO_Port, LED_5_Pin, RESET);
+			break;
+		case 6:
+			setAllClock();
+			HAL_GPIO_WritePin(LED_6_GPIO_Port, LED_6_Pin, RESET);
+			break;
+		case 7:
+			setAllClock();
+			HAL_GPIO_WritePin(LED_7_GPIO_Port, LED_7_Pin, RESET);
+			break;
+		case 8:
+			setAllClock();
+			HAL_GPIO_WritePin(LED_8_GPIO_Port, LED_8_Pin, RESET);
+			break;
+		case 9:
+			setAllClock();
+			HAL_GPIO_WritePin(LED_9_GPIO_Port, LED_9_Pin, RESET);
+			break;
+		case 10:
+			setAllClock();
+			HAL_GPIO_WritePin(LED_10_GPIO_Port, LED_10_Pin, RESET);
+			break;
+		case 11:
+			setAllClock();
+			HAL_GPIO_WritePin(LED_11_GPIO_Port, LED_11_Pin, RESET);
+			break;
+	}
+}
+
 int main(void)
 {
   /* USER CODE BEGIN 1 */
@@ -89,10 +211,30 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  int counter_second=0,counter_minute=0,counter_hour=0;
+  int count_minute=0;
   while (1)
   {
     /* USER CODE END WHILE */
-
+	  clearAllClock();
+	  setNumberOnClock(counter_second);
+	  setNumberOnClock(counter_minute);
+	  setNumberOnClock(counter_hour);
+	  HAL_Delay(1000);
+	  counter_second++;
+	  if(counter_second==12) {
+		  counter_second=0;
+		  count_minute++;
+	  }
+	  if(count_minute==5) {
+		  counter_minute++;
+		  count_minute=0;
+	  }
+	  if(counter_minute==12) {
+		  counter_minute=0;
+		  counter_hour++;
+	  }
+	  if(counter_hour==12) counter_hour=0;
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
